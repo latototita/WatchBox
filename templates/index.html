@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block body %}
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__slider owl-carousel">
+                <div class="hero__items set-bg" data-setbg="static/img/hero/hero-1.jpg">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Adventure</div>
+                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <p>After 30 days of travel across the world...</p>
+                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="static/img/hero/hero-1.jpg">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Adventure</div>
+                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <p>After 30 days of travel across the world...</p>
+                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="static/img/hero/hero-1.jpg">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Adventure</div>
+                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <p>After 30 days of travel across the world...</p>
+                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Product Section Begin -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="trending__product">
+                        <div class="row">
+                            {% for i in movies %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{i.image.url}}">
+                                        <div class="ep">Details</div>
+                                        {% if i.file %}
+                                        <div class="comment" ><a href="{% url 'Vid:movie_detail' i.id %}"><i class="fa fa-play"></i>  Watch Live</a></div>
+                                        <div class="view"><a href="{{ i.file.url }}" download="{{ i.file.url }}"><i class="fa fa-download"></i>  Download</div></a>
+                                        {% else %}
+                                        <div class="view"><a href="{% url 'Vid:series_detail' i.id %}"><i class="fa fa-eye"></i>View</div></a>
+                                        {% endif %}  
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            {% if i.is_trending == True %}
+                                            <li>Trending</li>
+                                            {% elif i.is_thriller == True %}
+                                            <li>Thriller</li>
+                                            {% elif i.is_action == True %}
+                                            <li>Action</li>
+                                            {% elif i.is_kdrama == True %}
+                                            <li>Kdrama</li>
+                                            {% elif i.is_anime == True %}
+                                            <li>AAnime</li>
+                                            {% elif i.is_horror == True %}
+                                            <li>Horror</li>
+                                            {% elif i.is_animation == True %}
+                                            <li>Animation</li>
+                                            {% endif %}
+                                        </ul>
+                                        {% if i.file %}
+                                        <h5><a href="#">{{ i.title }}</a></h5>
+                                        {% else %}
+                                        <h5><a href="{% url 'Vid:series_detail' i.id %}">{{ i.title }}</a></h5>
+                                        {% endif %} 
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Section End -->
+
+{% endblock %}
