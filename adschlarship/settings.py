@@ -34,7 +34,7 @@ SECURE_SSL_REDIRECT = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['oneclick.herokuapp.com','*','watchb-env.eba-w8nrxma2.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['trial.herokuapp.com','*','watchb-env.eba-w8nrxma2.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -98,7 +98,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'watchbox',
+        'NAME': 'postgres',
         'USER': 'watchbox',
         'PASSWORD': '1234$Victoria',
         'HOST': 'watchbox.coiya86y76ty.us-east-1.rds.amazonaws.com',
